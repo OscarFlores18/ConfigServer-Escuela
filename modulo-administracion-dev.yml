@@ -18,17 +18,18 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
 
----
 spring:
-  config:
-    activate:
-      on-profile: docker
-
   security:
     oauth2:
       resourceserver:
         jwt:
           secret-key: MiClaveSecretaSuperSeguraParaElColegio123456
+
+---
+spring:
+  config:
+    activate:
+      on-profile: docker
 
   datasource:
     url: jdbc:h2:mem:administraciondb
