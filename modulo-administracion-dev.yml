@@ -1,5 +1,6 @@
 server:
   port: 8085
+
 management:
   endpoints:
     web:
@@ -8,6 +9,7 @@ management:
   endpoint:
     health:
       show-details: always
+
 eureka:
   client:
     service-url:
@@ -15,16 +17,25 @@ eureka:
   instance:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10
+
 ---
 spring:
   config:
     activate:
       on-profile: docker
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          secret-key: MiClaveSecretaSuperSeguraParaElColegio123456
+
   datasource:
     url: jdbc:h2:mem:administraciondb
     driver-class-name: org.h2.Driver
     username: sa
     password: ""
+
   jpa:
     hibernate:
       ddl-auto: update
@@ -32,6 +43,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
+
   h2:
     console:
       enabled: true
